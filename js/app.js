@@ -19,24 +19,23 @@ function consultarCriptoMonedas (){
 
     fetch(url)
         .then( respuesta => respuesta.json() )
-        .then( resultado => obtenerCriptomonedas(resultado.data))
+        .then( resultado => obtenerCriptomonedas(resultado.Data))
         .then( criptoMonedas => selectCriptomonedas(criptoMonedas))
 }
 
 
-function selectCriptomonedas(criptoMonedas) {
+
+function selectCriptomonedas(criptoMonedas){
 
     criptoMonedas.forEach( cripto => {
-        
-    
 
-        const {FullName, Name} = cripto.CoinInfo;
-
-        const option = document.createElement('option');
-        option.value = Name;
-        option.textContent = FullName;
-        criptoMonedasSelect.appendChild(option);
+        console.log(cripto);
         
     });
 
+
+
+
 }
+
+     
