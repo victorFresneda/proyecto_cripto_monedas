@@ -78,6 +78,8 @@ function submitFomulario(e){
 
     // Cosultar la API co los resultsdos
 
+    consultarAPI();
+
 
 }
 
@@ -107,4 +109,21 @@ function mostrarAlerta(msg){
     
 
 }
+
+function consultarAPI(){
+    const {moneda, criptomoneda} = objBusqueda;
+
+    const url =`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${criptomoneda}&tsyms=${moneda}`
+
+    fetch(url)
+        .then( respuesta => respuesta.json())
+        .then(cotizacion => {
+            mostrarCtizacionHTML(cotizacion.DISPLAY[criptomoneda][moneda]);
+        })
+     
+}
+
+function mostrarCtizacionHTML(cotizacion){
+    console.log(cotizacion);
+};
      
